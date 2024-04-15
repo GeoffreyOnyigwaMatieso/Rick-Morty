@@ -1,8 +1,29 @@
+import React, { useState, useEffect } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Filter from "./components/Filters/Filter";
 import Cards from "./components/Cards/Cards";
+
 function App() {
+
+  let [pageNumber, setPageNumber] = useState(1)
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+  let [fetchData, updateFetchData] = useState([])
+
+  // destructure results for Cards and info for pagination
+  let {info, results} = fetchData
+
+  console.log(results)
+
+
+  useEffect(() => {
+    (async function (){
+      let data = await fetch(api).then(res => res.json())
+      updateFetchData(data)
+    })()
+  }, [api])
+
+
   return (
     <div className="App">
       <h1 className="text-center ubuntu my-4 ">
