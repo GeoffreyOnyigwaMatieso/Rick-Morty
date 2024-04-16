@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-center ubuntu my-4 ">
-        Rick & Morty <span className="text-danger">WiKi</span>
+        Rick & Morty <span className="text-danger">Rickiverse</span>
       </h1>
         <Search setPageNumber = {setPageNumber} setSearch = {setSearch}/>
       <div className="container">
@@ -45,7 +45,7 @@ function App() {
           </div>
         </div>
       </div>
-      <Pagination pageNumber = {pageNumber} setPageNumber = {setPageNumber}></Pagination>
+      <Pagination info = {info} pageNumber = {pageNumber} setPageNumber = {setPageNumber}></Pagination>
     </div>
   );
 }
