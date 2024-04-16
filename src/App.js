@@ -13,7 +13,7 @@ function App() {
   // destructure results for Cards and info for pagination
   let {info, results} = fetchData
 
-  console.log(results)
+  // console.log(results)
 
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-center ubuntu my-4 ">
-        Rick & Morty <span className="text-primary">WiKi</span>
+        Rick & Morty <span className="text-danger">WiKi</span>
       </h1>
 
       <div className="container">
@@ -37,10 +37,10 @@ function App() {
         </div>
         <div className="col-8">
           <div className="row">
-            <Cards />
+            <Cards  results = {results}/>
           </div>
         </div>
-      </div>
+       </div>
       </div>
     </div>
   );
