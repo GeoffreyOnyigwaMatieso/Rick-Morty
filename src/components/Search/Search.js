@@ -1,16 +1,31 @@
-import React from 'react'
-import style from './Search.module.scss'
+import React from "react";
+import styles from "./Search.module.scss";
 
-const Search = ({setSearch, setPageNumber}) => {
+const Search = ({ setSearch, updatePageNumber }) => {
+  let searchBtn = (e) => {
+    e.preventDefault();
+  };
   return (
-    <form className='d-flex justify-content-center gap-4 mb-5'>
-        <input onChange={(e) => {
-            setPageNumber(1)
-            setSearch(e.target.value)}}
-             type="text"  className={style.input}  placeholder='Search Character'/>
-      <button onClick = {(e)=> {e.preventDefault()}} className={`${style.btn} btn btn-primary fs-5`}>Search</button>
+    <form
+      className={`${styles.search} d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-5`}
+    >
+      <input
+        onChange={(e) => {
+          updatePageNumber(1);
+          setSearch(e.target.value);
+        }}
+        placeholder="Search for characters"
+        className={styles.input}
+        type="text"
+      />
+      <button
+        onClick={searchBtn}
+        className={`${styles.btn} btn btn-primary fs-5`}
+      >
+        Search
+      </button>
     </form>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
