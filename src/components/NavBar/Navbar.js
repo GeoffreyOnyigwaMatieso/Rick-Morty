@@ -1,33 +1,57 @@
-import React from 'react'
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import "../../App.scss";
 
 const Navbar = () => {
   return (
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">Home</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Link</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                      </li>
-                  </ul>
-                  <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                          <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-              </div>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <div className="container">
+        <Link to="/" className="navbar-brand fs-3 ubuntu">
+          Rick & Morty <span className="text-primary">WiKi</span>
+        </Link>
+        <style jsx>{`
+          button[aria-expanded="false"] > .close {
+            display: none;
+          }
+          button[aria-expanded="true"] > .open {
+            display: none;
+          }
+        `}</style>
+        <button
+          className="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fas fa-bars open text-dark"></span>
+          <span class="fas fa-times close text-dark"></span>
+        </button>
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNavAltMarkup"
+        >
+          <div className="navbar-nav fs-5">
+            <NavLink to="/" className="nav-link">
+              Characters
+            </NavLink>
+            <NavLink to="/episodes" className="nav-link">
+              Episode
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              className="nav-link"
+              to="/location"
+            >
+              Location
+            </NavLink>
           </div>
-      </nav>
-  )
-}
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
