@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card/Card";
-import InputGroup from "../components/Filter/category/InputGroup";
+import InputGroup from "../components/Filters/category/InputGroup";
+import Cards from "../components/Cards/Cards";
 
 const Episodes = () => {
   let [results, setResults] = React.useState([]);
@@ -42,7 +42,7 @@ const Episodes = () => {
         </div>
         <div className="col-lg-8 col-12">
           <div className="row">
-            <Card page="/episodes/" results={results} />
+            <Cards page="/episodes/" results={results} />
           </div>
         </div>
       </div>
