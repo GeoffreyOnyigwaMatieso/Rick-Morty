@@ -1,66 +1,70 @@
-import React from 'react'
-import style from './Cards.module.scss'
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./Cards.module.scss";
 
-const Cards = ({ results }) => {
-    // console.log(results)
-    let display;
 
-    if (results) {
-        display = results.map(item => {
-            let { id, name, image, location, status } = item
+const Card = ({ page, results }) => {
+  let display;
 
-            return (
-                <div key={id} className="col-4 mb-4 position-relative">
-                    <div className={`${style.cards}`}>
-                        <img src={image} alt="" className={`${style.img} img-fluid`} />
-                        <div style={{ padding: "10px" }} className="content">
-                            <div className="fs-4 fw-bold mb-4">{name}</div>
-                            <div className="">
-                                <div className="fs-6">Last location</div>
-                                <div className="fs-5">{location.name}</div>
-                            </div>
-                        </div>
-                    </div>
-                    {(() => {
-                        if (status === "Dead") {
-                            return (
-                                <div
-                                    className={`${style.badge} position-absolute badge bg-danger`}
-                                >
-                                    {status}
-                                </div>
-                            );
-                        } else if (status === "Alive") {
-                            return (
-                                <div
-                                    className={`${style.badge} position-absolute badge bg-success`}
-                                >
-                                    {status}
-                                </div>
-                            );
-                        } else {
-                            return (
-                                <div
-                                    className={`${style.badge} position-absolute badge bg-secondary`}
-                                >
-                                    {status}
-                                </div>
-                            );
-                        }
-                    })()}
+  if (results) {
+    display = results.map((x) => {
+      let { id, image, name, status, location } = x;
+
+      return (
+        <Link
+          style={{ textDecoration: "none" }}
+          to={`${page}${id}`}
+          key={id}
+          className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark"
+        >
+          <div
+            className={`${styles.card} d-flex flex-column justify-content-center`}
+          >
+            <img className={`${styles.img} img-fluid`} src={image} alt="" />
+            <div className={`${styles.content}`}>
+              <div className="fs-5 fw-bold mb-4">{name}</div>
+              <div className="">
+                <div className="fs-6 fw-normal">Last Location</div>
+                <div className="fs-5">{location.name}</div>
+              </div>
+            </div>
+          </div>
+
+          {(() => {
+            if (status === "Dead") {
+              return (
+                <div
+                  className={`${styles.badge} position-absolute badge bg-danger`}
+                >
+                  {status}
                 </div>
-            )
-        })
+              );
+            } else if (status === "Alive") {
+              return (
+                <div
+                  className={`${styles.badge} position-absolute badge bg-success`}
+                >
+                  {status}
+                </div>
+              );
+            } else {
+              return (
+                <div
+                  className={`${styles.badge} position-absolute badge bg-secondary`}
+                >
+                  {status}
+                </div>
+              );
+            }
+          })()}
+        </Link>
+      );
+    });
+  } else {
+    display = "No Characters Found :/";
+  }
 
-    } else {
-        display = "No Character Found :/"
-    }
+  return <>{display}</>;
+};
 
-    return (
-        <div>
-            {display}
-        </div>
-    )
-}
-
-export default Cards
+export default Card;
