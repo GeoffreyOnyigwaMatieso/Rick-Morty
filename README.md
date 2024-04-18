@@ -6,13 +6,14 @@ Ensure you have Node.js and npm installed on your machine.
 1. Clone this repository to your local machine:
 
 ```  
-git clone https://github.com/your-username/your-repository.git 
+ git clone git@github.com:Gmatieso/Rick-Morty.git                                                                                                     
+
 ```
 
 2. Navigate to the project directory:
 
 ``` 
-cd your-repository 
+cd Rick-Morty 
 ``` 
 
 3. Install the required packages:
