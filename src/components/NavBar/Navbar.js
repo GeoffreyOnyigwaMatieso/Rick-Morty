@@ -4,10 +4,10 @@ import "../../App.scss";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <nav className="navbar navbar-expand-lg navbar-light bg-primary-subtle mb-4">
       <div className="container">
         <Link to="/" className="navbar-brand fs-3 ubuntu">
-          Rick & Morty <span className="text-primary">RickiVerse</span>
+          Rick & Morty <span className="text-danger">RickiVerse</span>
         </Link>
         <style jsx>{`
           button[aria-expanded="false"] > .close {
