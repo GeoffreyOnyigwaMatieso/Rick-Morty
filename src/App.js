@@ -40,8 +40,10 @@ const Home = () => {
   let [species, updateSpecies] = useState("");
   let [fetchedData, updateFetchedData] = useState([]);
   let [search, setSearch] = useState("");
+  // destructure results for Cards and info for Pagination
   let { info, results } = fetchedData;
 
+    // console.log(results;
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;
 
   useEffect(() => {

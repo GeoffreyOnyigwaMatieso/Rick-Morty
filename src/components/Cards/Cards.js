@@ -8,6 +8,7 @@ const Card = ({ page, results }) => {
 
   if (results) {
     display = results.map((x) => {
+        // destructuring the object
       let { id, image, name, status, location } = x;
 
       return (
